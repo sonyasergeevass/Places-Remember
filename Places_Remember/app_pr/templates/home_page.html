@@ -5,8 +5,8 @@
     <title>Home</title>
 </head>
 <body>
-    <h>
-        Successfully!
-    </h>
+    <h1>{{ user.first_name }}</h1>
+    <img src="{{ vk_data.photo_big }}">
+    <a href="{% url 'account_logout' %}">Sign Out</a>
 </body>
 </html>
