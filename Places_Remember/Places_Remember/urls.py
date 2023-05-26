@@ -1,5 +1,5 @@
 """
-URL configuration for Places_Remember project.
+URL configuration for places_remember project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from app_pr import views
+
 
 urlpatterns = [
+    # path('', views.login_page_vk, name='login_page_vk'),
+    path('', views.login_page_vk, name='login_vk'),
+    path('home', views.home_page, name='home'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
 ]
