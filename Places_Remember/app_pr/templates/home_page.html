@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,24 @@
 <body>
     <h1>{{ user.first_name }}</h1>
     <img src="{{ vk_data.photo_big }}">
-    <a href="{% url 'account_logout' %}">Sign Out</a>
+    <a href="{% url 'logout_account' %}">Sign Out</a>
+<!--    {% if vk_data %}-->
+<!--        <h1>{{ user.first_name }}</h1>-->
+<!--        <img src="{{ vk_data.photo_big }}">-->
+<!--        <a href="{% url 'account_logout' %}">Sign Out</a>-->
+<!--    {% else %}-->
+<!--        No VK data available.-->
+<!--    {% endif %}-->
+<!--    {% if vk_account %}-->
+<!--        &lt;!&ndash; Display information related to the VK account &ndash;&gt;-->
+<!--        <p>{{ vk_account.extra_data.first_name }}</p>-->
+<!--        <img src="{{ vk_account.get_avatar_url }}">-->
+
+<!--        &lt;!&ndash; Add a logout button &ndash;&gt;-->
+<!--        <a href="{% url 'account_logout' %}">Logout</a>-->
+<!--    {% else %}-->
+<!--        &lt;!&ndash; Display the login link if the user is not logged in with VK &ndash;&gt;-->
+<!--        <a href="{% provider_login_url 'vk' %}">Sign in with VK</a>-->
+<!--    {% endif %}-->
 </body>
 </html>

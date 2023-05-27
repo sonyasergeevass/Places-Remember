@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'app_pr.context_processors.vk_data',
             ],
         },
     },
@@ -128,8 +129,10 @@ SOCIALACCOUNT_PROVIDERS = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 SOCIALACCOUNT_LOGIN_ON_GET = True
+
 LOGIN_URL = 'account_login'
 LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'login_vk'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
