@@ -25,7 +25,7 @@ urlpatterns = [
     path('home/', views.home_page, name='home'),
     # path('logout/', views.logout_view, name='logout'),
     path('logout/', LogoutView.as_view(next_page='login_vk'),
-         name='logout_account'),
+         name='logout'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
 ]
