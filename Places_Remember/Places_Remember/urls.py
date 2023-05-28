@@ -30,5 +30,6 @@ urlpatterns = [
                        name='logout'),
                   path('admin/', admin.site.urls),
                   path('accounts/', include('allauth.urls')),
+                  path('add_mem', views.add_mem, name='add_mem'),
               ] + static(settings.STATIC_URL,
                          document_root=settings.STATIC_ROOT)
