@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% load socialaccount %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>{{ user.first_name }}</h1>
+<img src="{{ vk_data.photo_big }}">
+<a href="{% url 'logout' %}">Sign Out</a>
+{% endblock %}
