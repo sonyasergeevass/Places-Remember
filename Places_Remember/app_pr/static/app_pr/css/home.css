@@ -6,54 +6,24 @@ body {
         .top-panel {
             background-color: #333;
             color: #fff;
-            padding: 9.5px;
+            padding: 10px;
             text-align: left;
         }
-
-        .top-panel1 {
-            background-color: #333;
-            color: #fff;
-            padding: 9px;
-            text-align: left;
-        }
-
         .top-panel h3 {
             margin: 0;
         }
         .container {
             margin-top: 100px;
         }
-        .description {
-            float: left;
-            width: 50%;
-            margin-bottom: 40px;
-        }
-        .signin-button {
-            clear: both;
-
-        }
-        @media (max-width: 768px) {
-            .description, .signin-button {
-                float: none;
-                width: 100%;
-            }
-        }
-
-        .container-narrow {
-            margin-top: 0px;
-            align-items: right;
-        }
-
         .user-info {
             display: flex;
             align-items: center;
-            margin-bottom: 0px;
-            justify-content: flex-end;
+            margin-bottom: 20px;
         }
         .user-info img {
             margin-right: 10px;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             object-fit: cover;
             border-radius: 50%;
         }

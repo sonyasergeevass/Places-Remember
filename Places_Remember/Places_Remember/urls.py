@@ -17,15 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 from app_pr import views
 
 urlpatterns = [
-    # path('', views.login_page_vk, name='login_page_vk'),
-    path('', views.login_page_vk, name='login_vk'),
-    path('home/', views.home_page, name='home'),
-    # path('logout/', views.logout_view, name='logout'),
-    path('logout/', LogoutView.as_view(next_page='login_vk'),
-         name='logout'),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-]
+                  # path('', views.login_page_vk, name='login_page_vk'),
+                  path('', views.login_page_vk, name='login_vk'),
+                  path('home/', views.home_page, name='home'),
+                  # path('logout/', views.logout_view, name='logout'),
+                  path('logout/', LogoutView.as_view(next_page='login_vk'),
+                       name='logout'),
+                  path('admin/', admin.site.urls),
+                  path('accounts/', include('allauth.urls')),
+              ] + static(settings.STATIC_URL,
+                         document_root=settings.STATIC_ROOT)
