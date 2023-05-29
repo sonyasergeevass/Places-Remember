@@ -29,5 +29,7 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('accounts/', include('allauth.urls')),
                   path('add_mem/', views.add_mem, name='add_mem'),
+                  path('memory/<int:memory_id>/', views.memory_detail,
+                       name='memory_detail'),
               ] + static(settings.STATIC_URL,
                          document_root=settings.STATIC_ROOT)

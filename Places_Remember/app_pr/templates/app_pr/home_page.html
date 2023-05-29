@@ -44,8 +44,12 @@
                                                  {{ memory.longitude }}]);
                             map{{ memory.id }}.geoObjects.add(placemark{{ memory.id }});
                         });
+
                     </script>
-                    <h3>{{ memory.title }}</h3>
+                    <h3>
+                        <a class="memory-link"
+                           href="{% url 'memory_detail' memory.id %}">{{ memory.title }}</a>
+                    </h3>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:3 and not forloop.last %}

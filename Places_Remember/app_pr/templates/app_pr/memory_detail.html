@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Watch memory{% endblock %}
+
+{% block content %}
+<div class="top-panel">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Places Remember</h3>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <div class="user-info">
+                <img src="{{ vk_data.photo_big }}">
+                <span>{{ user.first_name }}</span>
+                <a class="btn btn-primary" href="{% url 'logout' %}">Sign
+                    out</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2>{{ memory.title }}</h2>
+    <p>{{ memory.description }}</p>
+    <div class="map" id="map-{{ memory.id }}"></div>
+</div>
+{% endblock %}

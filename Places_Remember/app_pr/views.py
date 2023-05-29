@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from allauth.socialaccount.models import SocialAccount
 from django.contrib.auth.decorators import login_required
 from .models import Memory
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -50,3 +51,15 @@ def add_mem(request):
         return redirect('home')
 
     return render(request, 'add_mem.html', context)
+
+
+def memory_detail(request, memory_id):
+    vk_data = {}
+    if request.user.is_authenticated:
+        vk_account = SocialAccount.objects.filter(user=request.user,
+                                                  provider='vk').first()
+        if vk_account:
+            vk_data = vk_account.extra_data
+    memory = get_object_or_404(Memory, id=memory_id)
+    context = {'vk_data': vk_data, 'memory': memory}
+    return render(request, 'memory_detail.html', context)
