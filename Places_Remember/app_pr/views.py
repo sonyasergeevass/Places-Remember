@@ -20,10 +20,8 @@ def home_page(request):
                                                   provider='vk').first()
         if vk_account:
             vk_data = vk_account.extra_data
-        # return {'vk_data': vk_data}
     context = {'vk_data': vk_data, 'memories': memories}
     return render(request, 'home_page.html', context)
-    # return render(request, 'home_page.html')
 
 
 def logout_view(request):
@@ -31,10 +29,14 @@ def logout_view(request):
     return redirect('login_vk')
 
 
-# def add_mem(request):
-#     return render(request, 'add_mem.html')
-
 def add_mem(request):
+    vk_data = {}
+    if request.user.is_authenticated:
+        vk_account = SocialAccount.objects.filter(user=request.user,
+                                                  provider='vk').first()
+        if vk_account:
+            vk_data = vk_account.extra_data
+    context = {'vk_data': vk_data}
     if request.method == 'POST':
         user = request.user
         latitude = request.POST.get('latitude')
@@ -47,4 +49,4 @@ def add_mem(request):
                               title=title, description=description)
         return redirect('home')
 
-    return render(request, 'add_mem.html')
+    return render(request, 'add_mem.html', context)

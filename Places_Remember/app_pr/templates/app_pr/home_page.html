@@ -4,10 +4,6 @@
 
 {% block title %}Home{% endblock %}
 
-<!--{% block styles %}-->
-<!--    <link href="{% static 'app_pr/css/home.css' %}" rel="stylesheet">-->
-<!--{% endblock %}-->
-
 {% block content %}
 <div class="top-panel">
     <div class="row">
@@ -41,7 +37,7 @@
                             new ymaps.Map("map-{{ memory.id }}", {
                                 center: [{{ memory.latitude }},
                                          {{ memory.longitude }}],
-                                zoom: 10
+                                zoom: 13
                             });
                             var placemark{{ memory.id }} =
                             new ymaps.Placemark([{{ memory.latitude }},

@@ -9,13 +9,6 @@ body {
             padding: 9.5px;
             text-align: left;
         }
-
-        .top-panel1 {
-            background-color: #333;
-            color: #fff;
-            padding: 9px;
-            text-align: left;
-        }
         .container {
             margin-top: 100px;
         }
@@ -76,3 +69,57 @@ body {
           width: 100%;
           height: 300px; /* Adjust the height as needed */
         }
+
+        .memory h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+
+
+.container3 {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .map-container {
+            width: 60%;
+            padding: 20px;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+
+        .form-container {
+            width: 35%;
+            padding: 20px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-container button {
+            width: 100%;
+        }
+        .top-panel {
+            background-color: #333;
+            color: #fff;
+            padding: 9.5px;
+            text-align: left;
+        }
+
+        textarea[name="description"] {
+          resize: none;
+          width: 350px;
+          height: 270px;
+        }
+
+        input[name="title"] {
+            width: 350px;
+            }
