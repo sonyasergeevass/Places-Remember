@@ -22,14 +22,12 @@ from django.conf.urls.static import static
 from app_pr import views
 
 urlpatterns = [
-                  # path('', views.login_page_vk, name='login_page_vk'),
                   path('', views.login_page_vk, name='login_vk'),
                   path('home/', views.home_page, name='home'),
-                  # path('logout/', views.logout_view, name='logout'),
                   path('logout/', LogoutView.as_view(next_page='login_vk'),
                        name='logout'),
                   path('admin/', admin.site.urls),
                   path('accounts/', include('allauth.urls')),
-                  path('add_mem', views.add_mem, name='add_mem'),
+                  path('add_mem/', views.add_mem, name='add_mem'),
               ] + static(settings.STATIC_URL,
                          document_root=settings.STATIC_ROOT)
