@@ -16,12 +16,14 @@ body {
             padding: 9px;
             text-align: left;
         }
-
-        .top-panel h3 {
-            margin: 0;
-        }
         .container {
             margin-top: 100px;
+        }
+        .container1{
+            margin-top: 35px;
+        }
+        .content h3 {
+
         }
         .description {
             float: left;
@@ -38,12 +40,6 @@ body {
                 width: 100%;
             }
         }
-
-        .container-narrow {
-            margin-top: 0px;
-            align-items: right;
-        }
-
         .user-info {
             display: flex;
             align-items: center;
@@ -73,5 +69,10 @@ body {
             text-align: center;
         }
         .content h2 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .map {
+          width: 100%;
+          height: 300px; /* Adjust the height as needed */
         }
