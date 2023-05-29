@@ -14,13 +14,14 @@ def login_page_vk(request):
 @login_required
 def home_page(request):
     vk_data = {}
+    memories = Memory.objects.filter(user=request.user)
     if request.user.is_authenticated:
         vk_account = SocialAccount.objects.filter(user=request.user,
                                                   provider='vk').first()
         if vk_account:
             vk_data = vk_account.extra_data
         # return {'vk_data': vk_data}
-    context = {'vk_data': vk_data}
+    context = {'vk_data': vk_data, 'memories': memories}
     return render(request, 'home_page.html', context)
     # return render(request, 'home_page.html')
 
@@ -44,6 +45,6 @@ def add_mem(request):
         Memory.objects.create(user=user, latitude=latitude,
                               longitude=longitude,
                               title=title, description=description)
-        return redirect('memory_list')
+        return redirect('home')
 
     return render(request, 'add_mem.html')
