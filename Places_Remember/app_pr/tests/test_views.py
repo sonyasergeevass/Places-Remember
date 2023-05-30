@@ -1,6 +1,6 @@
 from allauth.socialaccount.models import SocialAccount
 from django.contrib.auth.models import User
-from django.test import Client, RequestFactory, TestCase
+from django.test import Client, TestCase
 from django.urls import reverse
 
 from app_pr.models import Memory
