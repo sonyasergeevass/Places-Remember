@@ -2,6 +2,7 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse, resolve
 from app_pr.views import login_page_vk, home_page, logout_view, add_mem
 
+
 class TestUrls(SimpleTestCase):
 
     def test_login_url_resolves(self):

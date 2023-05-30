@@ -8,15 +8,17 @@ body {
             color: #fff;
             padding: 9.5px;
             text-align: left;
+            overflow-x: hidden;
         }
         .container {
             margin-top: 100px;
+
         }
         .container1{
             margin-top: 35px;
         }
-        .content h3 {
-
+        container-fluid {
+            margin-top: 35px;
         }
         .description {
             float: left;
@@ -123,3 +125,14 @@ body {
         input[name="title"] {
             width: 350px;
             }
+
+        .content .memory-link {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .content .memory-link:hover {
+            color: #888;
+            text-decoration: none;
+        }

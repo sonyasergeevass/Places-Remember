@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from allauth.socialaccount.models import SocialAccount
 from app_pr.models import Memory
 
+
 class TestViews(TestCase):
     def setUp(self):
         self.client = Client()

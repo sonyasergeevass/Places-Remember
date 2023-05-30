@@ -27,12 +27,19 @@
     <div class="form-container">
         <form action="{% url 'add_mem' %}" method="POST">
             {% csrf_token %}
-            <input id="latitude" name="latitude" required type="hidden" value="">
-            <input id="longitude" name="longitude" required type="hidden" value="">
-            <input name="title" placeholder="Name of the memory" required type="text">
-            <textarea name="description" placeholder="Description of the memory"
+            <input id="latitude" name="latitude" required type="hidden"
+                   value="">
+            <input id="longitude" name="longitude" required type="hidden"
+                   value="">
+            <input name="title" placeholder="Name of the memory" required
+                   type="text">
+            <textarea name="description"
+                      placeholder="Description of the memory"
                       required></textarea>
-            <button type="submit">Save memory</button>
+            <button class="btn btn-primary" style="width: 130px; height: 36px; margin-left: 115px"
+                    type="submit" onclick="return validateCoordinates();">Save
+                memory
+            </button>
         </form>
     </div>
 </div>
@@ -56,6 +63,16 @@
             document.getElementById('latitude').value = coords[0];
             document.getElementById('longitude').value = coords[1];
         });
+    }
+
+    function validateCoordinates() {
+        var latitude = document.getElementById('latitude').value;
+        var longitude = document.getElementById('longitude').value;
+        if (latitude === '' || longitude === '') {
+            alert("Please set a marker on the map.");
+            return false;
+        }
+        return true;
     }
 </script>
 {% endblock %}
