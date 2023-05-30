@@ -1,5 +1,4 @@
 body {
-            background-image: url("path/to/your/background-image.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -22,8 +21,11 @@ body {
         }
         .description {
             float: left;
-            width: 50%;
+            width: 500px;
             margin-bottom: 40px;
+        }
+        .description p{
+            text-align: justify;
         }
         .signin-button {
             clear: both;
@@ -135,4 +137,17 @@ body {
         .content .memory-link:hover {
             color: #888;
             text-decoration: none;
+        }
+        .container4 {
+        max-width: 700px; /* Задайте нужную ширину блока сообщения */
+        }
+
+        .message-title {
+            word-wrap: break-word; /* Перенос слов при выходе за пределы блока */
+            hyphens: auto; /* Перенос по слогам */
+        }
+
+        .message-description {
+            word-wrap: break-word; /* Перенос слов при выходе за пределы блока */
+            hyphens: auto; /* Перенос по слогам */
         }

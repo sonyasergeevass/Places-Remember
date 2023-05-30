@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase, TestCase
-from django.urls import reverse, resolve
-from app_pr.views import login_page_vk, home_page, add_mem
+from django.urls import resolve, reverse
+
+from app_pr.views import add_mem, home_page, login_page_vk
 
 
 class TestUrls(SimpleTestCase):
@@ -16,5 +17,3 @@ class TestUrls(SimpleTestCase):
     def test_add_mem_url_resolves(self):
         urls = reverse('add_mem')
         self.assertEquals(resolve(urls).func, add_mem)
-
-

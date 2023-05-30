@@ -45,10 +45,17 @@
                             map{{ memory.id }}.geoObjects.add(placemark{{ memory.id }});
                         });
 
+
                     </script>
                     <h3>
                         <a class="memory-link"
-                           href="{% url 'memory_detail' memory.id %}">{{ memory.title }}</a>
+                           href="{% url 'memory_detail' memory.id %}">
+                            {% if memory.title|length > 15 %}
+                            {{ memory.title|slice:":15" }}...
+                            {% else %}
+                            {{ memory.title }}
+                            {% endif %}
+                        </a>
                     </h3>
                 </div>
             </div>

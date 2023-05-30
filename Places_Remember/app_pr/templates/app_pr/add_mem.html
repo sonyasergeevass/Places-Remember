@@ -36,8 +36,9 @@
             <textarea name="description"
                       placeholder="Description of the memory"
                       required></textarea>
-            <button class="btn btn-primary" style="width: 130px; height: 36px; margin-left: 115px"
-                    type="submit" onclick="return validateCoordinates();">Save
+            <button class="btn btn-primary"
+                    onclick="return validateCoordinates();"
+                    style="width: 130px; height: 36px; margin-left: 115px" type="submit">Save
                 memory
             </button>
         </form>
@@ -74,5 +75,6 @@
         }
         return true;
     }
+
 </script>
 {% endblock %}
