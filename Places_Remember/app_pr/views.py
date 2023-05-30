@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout
 from allauth.socialaccount.models import SocialAccount
 from django.contrib.auth.decorators import login_required
 from .models import Memory
@@ -25,9 +24,9 @@ def home_page(request):
     return render(request, 'home_page.html', context)
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('login_vk')
+# def logout_view(request):
+#     logout(request)
+#     return redirect('login_vk')
 
 
 def add_mem(request):
