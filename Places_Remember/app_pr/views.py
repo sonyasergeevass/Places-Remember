@@ -6,12 +6,22 @@ from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
+def custom_login_required(view_func):
+    actual_decorator = login_required(view_func)
+
+    def wrapper_func(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login_vk')
+        return actual_decorator(request, *args, **kwargs)
+
+    return wrapper_func
+
 
 def login_page_vk(request):
     return render(request, 'login_page_vk.html')
 
 
-@login_required
+@custom_login_required
 def home_page(request):
     vk_data = {}
     memories = Memory.objects.filter(user=request.user)
@@ -24,11 +34,7 @@ def home_page(request):
     return render(request, 'home_page.html', context)
 
 
-# def logout_view(request):
-#     logout(request)
-#     return redirect('login_vk')
-
-
+@custom_login_required
 def add_mem(request):
     vk_data = {}
     if request.user.is_authenticated:
@@ -52,6 +58,7 @@ def add_mem(request):
     return render(request, 'add_mem.html', context)
 
 
+@custom_login_required
 def memory_detail(request, memory_id):
     vk_data = {}
     if request.user.is_authenticated:
