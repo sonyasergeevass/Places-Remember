@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      -name: Change directory
+      - name: Change directory
         run: cd places_remember
 
       - name: Set up Python
