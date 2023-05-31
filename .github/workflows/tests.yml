@@ -1,0 +1,32 @@
+name: Django Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      -name: Change directory
+        run: cd places_remember
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python manage.py test app_pr
