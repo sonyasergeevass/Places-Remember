@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Change directory
-        run: ls -d */
+        run: cd Places_Remember/places_remember
 
       - name: Set up Python
         uses: actions/setup-python@v2
