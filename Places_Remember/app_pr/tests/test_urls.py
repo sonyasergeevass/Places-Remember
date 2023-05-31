@@ -1,6 +1,5 @@
-from django.test import SimpleTestCase, TestCase
+from django.test import SimpleTestCase
 from django.urls import resolve, reverse
-
 from app_pr.views import add_mem, home_page, login_page_vk
 
 
