@@ -5,21 +5,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="top-panel">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Places Remember</h3>
-        </div>
-        <div class="col-md-6 text-md-end">
-            <div class="user-info">
-                <img src="{{ vk_data.photo_big }}">
-                <span>{{ user.first_name }}</span>
-                <a class="btn btn-primary" href="{% url 'logout' %}">Sign
-                    out</a>
-            </div>
-        </div>
-    </div>
-</div>
+{% include 'top-panel.html' %}
 <div class="container container1">
     <div class="content">
         {% if memories %}
@@ -29,7 +15,6 @@
             <div class="col-md-4">
                 <div class="memory">
                     <div class="map" id="map-{{ memory.id }}">
-                        <!-- Здесь будет отображаться карта -->
                     </div>
                     <script>
                         ymaps.ready(function() {

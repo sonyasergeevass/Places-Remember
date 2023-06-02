@@ -6,6 +6,17 @@ from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
+
+def return_vk_data(request):
+    vk_data = {}
+    if request.user.is_authenticated:
+        vk_account = SocialAccount.objects.filter(user=request.user,
+                                                  provider='vk').first()
+        if vk_account:
+            vk_data = vk_account.extra_data
+    return vk_data
+
+
 def custom_login_required(view_func):
     actual_decorator = login_required(view_func)
 
@@ -23,26 +34,14 @@ def login_page_vk(request):
 
 @custom_login_required
 def home_page(request):
-    vk_data = {}
     memories = Memory.objects.filter(user=request.user)
-    if request.user.is_authenticated:
-        vk_account = SocialAccount.objects.filter(user=request.user,
-                                                  provider='vk').first()
-        if vk_account:
-            vk_data = vk_account.extra_data
-    context = {'vk_data': vk_data, 'memories': memories}
+    context = {'vk_data': return_vk_data(request), 'memories': memories}
     return render(request, 'home_page.html', context)
 
 
 @custom_login_required
 def add_mem(request):
-    vk_data = {}
-    if request.user.is_authenticated:
-        vk_account = SocialAccount.objects.filter(user=request.user,
-                                                  provider='vk').first()
-        if vk_account:
-            vk_data = vk_account.extra_data
-    context = {'vk_data': vk_data}
+    context = {'vk_data': return_vk_data(request)}
     if request.method == 'POST':
         user = request.user
         latitude = request.POST.get('latitude')
@@ -60,12 +59,6 @@ def add_mem(request):
 
 @custom_login_required
 def memory_detail(request, memory_id):
-    vk_data = {}
-    if request.user.is_authenticated:
-        vk_account = SocialAccount.objects.filter(user=request.user,
-                                                  provider='vk').first()
-        if vk_account:
-            vk_data = vk_account.extra_data
     memory = get_object_or_404(Memory, id=memory_id)
-    context = {'vk_data': vk_data, 'memory': memory}
+    context = {'vk_data': return_vk_data(request), 'memory': memory}
     return render(request, 'memory_detail.html', context)
