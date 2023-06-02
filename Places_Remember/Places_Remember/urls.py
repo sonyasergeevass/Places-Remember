@@ -31,5 +31,7 @@ urlpatterns = [
                   path('add_mem/', views.add_mem, name='add_mem'),
                   path('memory/<int:memory_id>/', views.memory_detail,
                        name='memory_detail'),
+                  path('accounts/login/vk/', views.login_page_vk,
+                       name='login_vk'),
               ] + static(settings.STATIC_URL,
                          document_root=settings.STATIC_ROOT)

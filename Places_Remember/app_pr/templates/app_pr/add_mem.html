@@ -11,20 +11,16 @@
         <div id="map"></div>
     </div>
     <div class="form-container">
-        <form action="{% url 'add_mem' %}" method="POST">
+        <form method="POST">
             {% csrf_token %}
-            <input id="latitude" name="latitude" required type="hidden"
-                   value="">
-            <input id="longitude" name="longitude" required type="hidden"
-                   value="">
-            <input name="title" placeholder="Name of the memory" required
-                   type="text">
-            <textarea name="description"
-                      placeholder="Description of the memory"
-                      required></textarea>
+            {{ form.title }}
+            {{ form.description }}
+            <input id="latitude" name="latitude" type="hidden">
+            <input id="longitude" name="longitude" type="hidden">
             <button class="btn btn-primary"
                     onclick="return validateCoordinates();"
-                    style="width: 130px; height: 36px; margin-left: 115px" type="submit">Save
+                    style="width: 130px; height: 36px; margin-left: 115px"
+                    type="submit">Save
                 memory
             </button>
         </form>
@@ -61,6 +57,7 @@
         }
         return true;
     }
+
 
 </script>
 {% endblock %}
