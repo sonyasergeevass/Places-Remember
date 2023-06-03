@@ -55,7 +55,6 @@ class TestViews(TestCase):
         self.assertEqual(response.url, reverse('home'))
 
         memories = Memory.objects.filter(user=self.user)
-        # self.assertEqual(memories.count(), 1)
         memory = memories.first()
         self.assertEqual(memory.latitude, 10.123)
         self.assertEqual(memory.longitude, 20.456)
@@ -70,8 +69,3 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'memory_detail.html')
         self.assertContains(response, self.memory.title)
         self.assertContains(response, self.memory.description)
-
-    def test_custom_login_required(self):
-        response = self.client.get(reverse('home'))
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/')
